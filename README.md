@@ -29,3 +29,38 @@ h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
     * Reasons often: Redundant features and too many features
   * Octave pinv is pseudo inverse
   * 
+
+## Week 3 Notes
+
+Classification
+* Linear regression with a threshold falls over when data points are not grouped nicely
+  
+Logistic Regression
+* uses sigmoid
+* h<sub>&theta;</sub>(x) = g(&theta;<sup>T</sup> x)
+* g(z) = 1/(1 + e<sup>-z</sup>)
+* Use polynomial for non linear decision boundaries
+* The decision boundary is the line that separates the area where y = 0 and where y = 1. It is created by our hypothesis function.
+
+Cost Function
+* Non convex has many local minima,
+* Convex has only one minimum
+* cost function = -log(h<sub>&theta;</sub>(x)) if y = 1
+* cost function = -log(1 - h<sub>&theta;</sub>(x)) if y = 0
+
+Simplified Cost Function and Gradient Descent
+* cost function = -y log(h<sub>&theta;</sub>(x)) - (1-y) log(1 - h<sub>&theta;</sub>(x))
+* Update rule is exactly the same but h<sub>&theta;</sub>(x) has changed to sigmoid
+* Vectorised implementation of update function:
+  * &theta; := &theta; - (&alpha;&frasl;m) X<sup>T</sup> (g(X&theta;) - y)
+
+Advanced Optimization
+* Algorithms
+  * Conjugate gradient
+  * BFGS
+  * L-BFGS
+* Advantages
+  * no need to pick &alpha;
+  * often faster than GD
+* Can use fminunc in Octave
+  * needs cost function, which returns J(&theta;) and gradient for each &theta;
