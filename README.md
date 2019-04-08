@@ -79,5 +79,15 @@ Reduce overfitting
 * Regularization: reduces magnitude of parameters &theta;<sub>j</sub>
 
 Regularization: Cost function
-* J(&theta;) + &lambda; sum of &theta;<sup>2</sup>
+* J(&theta;) + &lambda;/m sum of &theta;<sup>2</sup>
 * if &lambda; is too large, underfitting occurs, leaves h(&theta;) = &theta;<sub>0</sub>
+  
+Regularization: Gradient Descent
+* &theta;<sub>j</sub> = &theta;<sub>j</sub>(1-&alpha;&lambda;/m)- &alpha;/m sum((h<sub>&theta;</sub>(x<sup>i</sup>) - y<sup>i</sup>)x<sup>i</sup><sub>j</sub>)
+
+Regularization: Normal Equation
+* &theta; = (X<sup>T</sup> X + &lambda;I(with I<sub>00</sub> = 0))<sup>-1</sup> X<sup>T</sup> y 
+
+Regularization: Logistic regression
+cost function = sum(-y log(h<sub>&theta;</sub>(x)) - (1-y) log(1 - h<sub>&theta;</sub>(x))) + &lambda;/m sum(&theta;<sub>j</sub><sup>2</sup>)
+
