@@ -64,3 +64,20 @@ Advanced Optimization
   * often faster than GD
 * Can use fminunc in Octave
   * needs cost function, which returns J(&theta;) and gradient for each &theta;
+
+Multiclass Classification
+* One vs all
+  * Treat each class as the positive class and rest as negative class
+  * Train a logistic regression classifier for each class
+
+Regularization: the problem of overfitting
+* Underfit or high bias
+* Overfit or high variance: too many features, therefore fits training set too well and will fail to generalise to new data.
+
+Reduce overfitting
+* Reduce number of features: manually or model selection algorithm
+* Regularization: reduces magnitude of parameters &theta;<sub>j</sub>
+
+Regularization: Cost function
+* J(&theta;) + &lambda; sum of &theta;<sup>2</sup>
+* if &lambda; is too large, underfitting occurs, leaves h(&theta;) = &theta;<sub>0</sub>
