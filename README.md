@@ -91,3 +91,7 @@ Regularization: Normal Equation
 Regularization: Logistic regression
 cost function = sum(-y log(h<sub>&theta;</sub>(x)) - (1-y) log(1 - h<sub>&theta;</sub>(x))) + &lambda;/m sum(&theta;<sub>j</sub><sup>2</sup>)
 
+## Week 4 Notes
+Neural Networks
+* Work better for non-linear hypotheses with large feature spaces
+
