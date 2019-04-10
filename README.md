@@ -95,3 +95,20 @@ cost function = sum(-y log(h<sub>&theta;</sub>(x)) - (1-y) log(1 - h<sub>&theta;
 Neural Networks
 * Work better for non-linear hypotheses with large feature spaces
 
+Model Representation
+* a<sub>i</sub><sup>(j)</sup> = "Activation" of unit i in layer j
+* &Theta;<sup>(j)</sup> = matrix of weights controlling function mapping from layer j to layer j + 1
+* Size of &Theta;<sup>(j)</sup> = s<sub>j+1</sub> x (s<sub>j</sub> + 1)
+
+Forward Propagation
+* a<sup>(1)</sup> = x;
+* z<sup>(j + 1)</sup> = &Theta;<sup>(j)</sup> a<sup>(j)</sup>
+* a<sup>(j + 1)</sup> = g(z<sup>(j + 1)</sup>)
+* a<sub>0</sub><sup>(j + 1)</sup> = 1
+
+Examples and Intuitations
+* AND, NOT, OR can be created using Neural Nets 
+
+Multiclass:
+* y is now a vector of binary where one row is 1 and rest are 0
+* 
