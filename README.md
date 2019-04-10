@@ -111,4 +111,5 @@ Examples and Intuitations
 
 Multiclass:
 * y is now a vector of binary where one row is 1 and rest are 0
-* 
+
+## Week 5 Notes
