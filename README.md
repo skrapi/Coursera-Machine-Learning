@@ -1,6 +1,25 @@
 # Coursera-Machine-Learning
-Example HTML:
-h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
+
+
 ## Week 2 Notes
 * Feature normalisation
   * Subtract mean = mean normalisation
@@ -60,7 +79,7 @@ Advanced Optimization
   * BFGS
   * L-BFGS
 * Advantages
-  * no need to pick &alpha;
+  * no need to pick $\alpha$;
   * often faster than GD
 * Can use fminunc in Octave
   * needs cost function, which returns J(&theta;) and gradient for each &theta;
@@ -79,8 +98,8 @@ Reduce overfitting
 * Regularization: reduces magnitude of parameters &theta;<sub>j</sub>
 
 Regularization: Cost function
-* J(&theta;) + &lambda;/m sum of &theta;<sup>2</sup>
-* if &lambda; is too large, underfitting occurs, leaves h(&theta;) = &theta;<sub>0</sub>
+* $J(\theta) = - \frac{1}{m} \sum^{m}_{i=1}{[\log(h_{\theta}(x^{(i)})) + (1-y^{(i)})\log(1-h_{\theta}(x^{(i)}))]} + \frac{\lambda}{2m}\sum^{n}_{j=1}{\theta_{j}^{2}}$
+* if $\lambda$ is too large, underfitting occurs, leaves $h(\theta) = \theta_{0}$
   
 Regularization: Gradient Descent
 * &theta;<sub>j</sub> = &theta;<sub>j</sub>(1-&alpha;&lambda;/m)- &alpha;/m sum((h<sub>&theta;</sub>(x<sup>i</sup>) - y<sup>i</sup>)x<sup>i</sup><sub>j</sub>)
@@ -113,3 +132,38 @@ Multiclass:
 * y is now a vector of binary where one row is 1 and rest are 0
 
 ## Week 5 Notes
+Cost Function:
+$J(\theta) = - \frac{1}{m} \sum^{m}_{i=1}{[\log(h_{\theta}(x^{(i)})) + (1-y^{(i)})\log(1-h_{\theta}(x^{(i)}))]} + \frac{\lambda}{2m}\sum^{n}_{j=1}{\theta_{j}^{2}}$
+
+Theta Initialization
+* &Theta; should not be initialised to the same value for all entries,
+* Rather use random initialisation
+
+Example:
+If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11.
+```matlab
+Theta1 = rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+Theta2 = rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+```
+
+Putting it together:
+* Features define number of inputs
+* Classes define number of outputs
+* More units in hidden layer is better, but more computatively expensive
+* One hidden layer, if more are needed keep number of units the same
+
+Training a Neural Network:
+1. Randomly initialize the weights
+2. Implement forward propagation to get hΘ(x(i)) for any x^{(i)}
+3. Implement the cost function
+4. Implement backpropagation to compute partial derivatives
+5. Use gradient checking to confirm that your backpropagation works. Then disable gradient checking.
+6. Use gradient descent or a built-in optimization function to minimize the cost function with the weights in theta.
+
+```matlab
+for i = 1:m,
+   Perform forward propagation and backpropagation using example (x(i),y(i))
+   (Get activations a(l) and delta terms d(l) for l = 2,...,L
+```
+
