@@ -133,7 +133,7 @@ Multiclass:
 
 ## Week 5 Notes
 Cost Function:
-$J(\theta) = - \frac{1}{m} \sum^{m}_{i=1}{[\log(h_{\theta}(x^{(i)})) + (1-y^{(i)})\log(1-h_{\theta}(x^{(i)}))]} + \frac{\lambda}{2m}\sum^{n}_{j=1}{\theta_{j}^{2}}$
+* $J(\Theta) = - \frac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[y^{(i)}_k \log ((h_\Theta (x^{(i)}))_k) + (1 - y^{(i)}_k)\log (1 - (h_\Theta(x^{(i)}))_k)\right] + \frac{\lambda}{2m}\sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} ( \Theta_{j,i}^{(l)})^2$
 
 Theta Initialization
 * &Theta; should not be initialised to the same value for all entries,
